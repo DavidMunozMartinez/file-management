@@ -1,0 +1,16 @@
+.file-container {
+    .size {
+        color: rgba(255,255,255,0.5);
+        margin-left: 20px;
+        font-size: 11px;
+    }
+}
+
+span.file-options {
+    color: darkgray;
+    float: right;
+
+    & > span {
+        margin: 0 10px;
+    }
+}

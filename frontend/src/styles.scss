@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 14px;
+    background: rgb(37, 37, 37);
+    color: rgb(216, 216, 216);
+    margin: 0;
+}
+
+.smart-hover-shadow {
+    background-color: rgba(255,255,255, 0.1);
+    border-radius: 5px;
+}
+
+.data-row {
+    .folder-container, .file-container {
+        padding: 10px;
+        border-radius: 5px;
+        vertical-align: bottom;
+        user-select: none;
+        .material-icons {
+            vertical-align: bottom;
+        }
+        .name {
+            vertical-align: bottom;
+            margin-left: 10px;
+            padding: 5px;
+        }
+    }
+}
+
+.folder-container > .material-icons {
+    color: rgb(96, 137, 226);
+}

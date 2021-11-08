@@ -1,0 +1,72 @@
+<smart-hover 
+  query-selector=".btn"
+  override-styles="true"
+  transition-time="100">
+
+  <div class="fixed-top">
+    <div class="float-left">
+      <div [class.at-root]="fileService.currentPath.length === 0" class="btn btn-back" (click)="back()">
+        <span class="material-icons">arrow_back</span>
+      </div>
+      
+      <div *ngIf="fileService.currentPath.length > 0" class="current-path">
+        <span>/</span>
+  
+        <span *ngFor="let name of fileService.currentPath; index as i">
+          <span (click)="goToSection(name, i)" class="path-section">{{name}}</span>
+          <span class="separator">/</span>
+        </span>
+      </div>
+    </div>
+
+    <div class="float-right">
+      <div class="btn btn-upload">
+        <span (click)="upload()" class="material-icons">upload</span>
+      </div>
+      <div class="btn btn-add-folder" (click)="newFolder()">
+        <span class="material-icons">create_new_folder</span>
+      </div>
+    </div>
+  </div>
+</smart-hover>
+
+<div 
+  class="data-container"
+  [class.file-hover]="fileHovering"
+  (drop)="onDrop($event)"
+  (dragover)="onDragOver($event)"
+  (dragleave)="onDragLeave()"
+  (dragenter)="onDragEnter()">
+  <div class="data-row" *ngFor="let data of data">
+    <app-file 
+      *ngIf="data.isFile"
+      [name]="data.name"
+      [size]="data.size"
+      [icon]="data.icon"
+      (deleted)="itemDeleted($event)"
+      (clicked)="itemClicked($event)">
+    </app-file>
+
+    <app-folder
+      *ngIf="data.isDirectory"
+      [name]="data.name"
+      [state]="data.state"
+      [locked]="data.locked"
+      (clicked)="loadDirectory($event)"
+      (droped)="fileDroped($event)"
+      (deleted)="itemDeleted($event)">
+    </app-folder>
+  </div>
+</div>
+
+<app-image-slider *ngIf="preview"
+  [files]="previewFiles"
+  (onClose)="closePreviewWindow($event)"
+  >
+</app-image-slider>
+
+<input 
+  type="file"
+  class="file-uploader"
+  style="display: none;"
+  (change)="filesSelected($event)">

@@ -1,0 +1,87 @@
+.fixed-top {
+    left: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 70px;
+    min-height: 70px;
+    z-index: 1;
+    display: flex;
+    justify-content: flex-start;
+    overflow: auto;
+    background-color: #252525;
+    .float-left, .float-right {
+        display: flex;
+        .material-icons {
+            vertical-align: middle;
+        }
+    }
+    .float-left {
+        justify-content: flex-start;
+        margin-left: 5px;
+    }
+
+    .float-right {
+        justify-content: flex-end;
+        flex: auto;
+        margin-right: 5px;
+    }
+
+    .btn.disable {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    .btn, .current-path {
+        padding: 12px;
+        cursor: pointer;
+        margin: auto 5px;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 5px;
+    }
+
+    .at-root {
+        pointer-events: none;
+        transition: opacity 0.2s ease-in-out;
+        opacity: 0;
+    }
+
+    .current-path {
+        overflow: auto;
+        .root-section .material-icons {
+            vertical-align: bottom;
+        }
+        .root-section:hover, span.path-section:hover {
+            color: rgb(96, 137, 226);
+            cursor: pointer;
+        }
+    }
+}
+
+.data-container {
+    position: absolute;
+    margin: 10px;
+    margin-top: 70px;
+    margin-bottom: 200px;
+    min-height: calc(100% - 230px);
+    width: calc(100% - 20px);
+    padding-bottom: 150px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    .data-row {
+        &:hover {
+            background-color: rgba(255,255,255, 0.06);
+        }
+        transition: background-color 150ms ease;
+        cursor: pointer;
+        border-radius: 4px;
+        position: relative;
+    }
+}
+
+.file-hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+
+

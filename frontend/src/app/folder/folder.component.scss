@@ -1,0 +1,12 @@
+span.folder-options {
+    color: darkgray;
+    float: right;
+
+    & > span {
+        margin: 0 10px;
+    }
+}
+
+.file-hover {
+    background: rgba(255,255,255,0.1);
+}

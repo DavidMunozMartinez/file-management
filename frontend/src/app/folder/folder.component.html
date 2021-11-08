@@ -1,0 +1,39 @@
+<div class="folder-container"
+    [class.file-hover]="fileHovering"
+    (click)="folderClicked(name)"
+    (drop)="onDrop($event)"
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave()"
+    (dragenter)="onDragEnter()">
+
+    <span *ngIf="!locked" class="material-icons">folder</span>
+    <span *ngIf="locked" class="material-icons">lock</span>
+
+    <span class="name" contenteditable="false" *ngIf="state === states.IDLE">{{name}}</span>
+    
+    <span class="name"
+        contenteditable="true"
+        *ngIf="state === states.EDIT"
+        (keydown)="onKeyDown($event)"
+        (input)="onInput($event)"
+        (blur)="commitFolderName($event)">{{name}}</span>
+    
+    <span class="folder-options">
+        <span *ngIf="showOptions"
+            class="material-icons"
+            (click)="deleteFolder($event)">
+            delete
+        </span>
+        <span *ngIf="showOptions"
+            class="material-icons"
+            (click)="toggleEdit($event)">
+            edit
+        </span>
+
+        <span class="material-icons more-options"
+            (click)="toggleOptions($event)">
+            more_vert
+        </span>
+    </span>
+
+</div>

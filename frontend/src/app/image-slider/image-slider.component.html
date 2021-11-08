@@ -1,0 +1,19 @@
+<div class="image-slider-container">
+    <div class="image-slider-controls">
+        <span (click)="onClose.emit($event)" class="close material-icons">close</span>
+    </div>
+    
+    <span class="previous" (click)="load(currentIndex - 1)"></span>
+    <span class="next" (click)="load(currentIndex + 1)"></span>
+    <div class="image-full">
+        <ng-container *ngFor="let image of indexedData; let i = index">
+            <img [style.display]="i === currentIndex ? 'block' : 'none'"
+                [src]="image"
+                height="auto">
+        </ng-container>
+    </div>
+
+    <div class="image-title">
+
+    </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="file-container" (click)="clicked.emit(name)">
+    <span class="material-icons">{{icon}}</span>
+    <span class="name">{{name}}</span>
+    <span class="size">{{size | filesize}}</span>
+
+    <span class="file-options">
+        <span *ngIf="showOptions" 
+            class="material-icons"
+            (click)="download($event)">
+            download
+        </span>
+
+        <span *ngIf="showOptions"
+            class="material-icons"
+            (click)="delete($event)">
+            delete
+        </span>
+        <span *ngIf="showOptions"
+            class="material-icons"
+            (click)="toggleEdit($event)">
+            edit
+        </span>
+
+        <span class="material-icons" (click)="toggleOptions($event)">more_vert</span>
+    </span>
+</div>
