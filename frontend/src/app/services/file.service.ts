@@ -5,7 +5,7 @@ import { AppFile } from '../file/file.component';
 import { EXTENSIONS_MAP } from './file-icons.constants';
 import * as FileSaver from 'file-saver';
 
-const server = 'http://localhost:8080/';
+const server = 'http://localhost:8085/';
 
 @Injectable({
   providedIn: 'root'

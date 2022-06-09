@@ -9,7 +9,7 @@ import { PORT, NEW_FOLDER } from './constants';
 const app = express();
 const upload = multer();
 const ROOT_PATH = process.env.ROOT_PATH || './file-storage';
-if (!process.env.ROOT_PATH) {
+if (!process.env.ROOT_PATH && !fs.readdirSync('./file-storage')) {
     fs.mkdirSync('./file-storage');
 }
 
